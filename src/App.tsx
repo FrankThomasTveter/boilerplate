@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, MuiThemeProvider } from '@material-ui/core';
+import {
+  makeStyles,
+  createStyles,
+  Theme,
+} from '@material-ui/core';
+import createTheme from './utils/createTheme';
 
-function App() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    content: {
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+    },
+    pageContent: {
+      paddingBottom: theme.spacing(4),
+      [theme.breakpoints.up('md')]: {
+        paddingBottom: theme.spacing(8),
+      },
+    },
+  }),
+);
+
+const App: React.FC = () => {
+  const styles = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={createTheme()}>
+      <div className={styles.content}>
+        <Button>Test</Button>
+      </div>
+    </MuiThemeProvider>
   );
-}
+};
 
 export default App;
+
