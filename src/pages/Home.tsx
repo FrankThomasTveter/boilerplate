@@ -1,15 +1,17 @@
 import React from 'react';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Grow, Paper, Typography } from '@material-ui/core';
 import {
   makeStyles,
   createStyles,
   Theme,
 } from '@material-ui/core';
 import examplePng from '../images/example.png';
+import { pageSpacing } from '../utils/metMuiThemes';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      ...pageSpacing(theme),
       flexGrow: 1,
     },
     paper: {

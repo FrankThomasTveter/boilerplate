@@ -4,6 +4,8 @@
  * for more info see: https://blest.met.no/intranett/_attachment/1712?_ts=1490d5de31a
  */
 
+import { Theme } from "@material-ui/core/styles";
+
 export const teal_palette =  {
     light: '#BADEE4',
     main: '#0090A8',
@@ -50,3 +52,21 @@ export const red_palette = {
     main: '#A24E75',
     dark: '#712C56'
 };
+
+export const pageSpacing = (theme: Theme) => {
+ return    {
+    margin: 0,
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+        paddingLeft: theme.spacing(10),
+        paddingRight: theme.spacing(10),
+    },
+    [theme.breakpoints.up('lg')]: {
+        paddingLeft: theme.spacing(20),
+        paddingRight: theme.spacing(20),
+    }
+}
+}

@@ -1,14 +1,17 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+import { pageSpacing } from '../utils/metMuiThemes';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      ...pageSpacing(theme),
       backgroundColor: theme.palette.primary.main,
       marginTop: theme.spacing(8),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
       bottom: 0,
-      padding: `${theme.spacing(6)}px 0`,
       color: '#FFF'
     },
   }),
