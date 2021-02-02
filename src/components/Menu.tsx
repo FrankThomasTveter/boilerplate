@@ -1,87 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper } from '@material-ui/core';
+import { Button, ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '100%',
-      paddingBottom: '2%',
+      display: 'flex',
     },
-    grow: {
-      flexGrow: 1,
+    paper: {
+      marginRight: theme.spacing(0),
     },
-    logo: {
-      padding: '1%',
-      width: 150,
-      [theme.breakpoints.up('sm')]: {
-        width: 200
-      },
-    },
-  }),
-);
+  }));
 
-const Menu: React.FC = () => {
-  const styles = useStyles();
-  const [open, setOpen] = useState(false);
-  const [currentElem, setCurrentElem] = useState(0);
-  const [anchor, setAnchor] = useState<Element | null>(null);
-  const [items, setItems] = useState([
-    { name: "Sol", id: 1 },
-    { name: "Regn", id: 2 },
-    { name: "Om oss", id: 3 }
-  ]);
-
-  const handleClick = (event: React.MouseEvent, id: number) => {
-    setAnchor(event.currentTarget);
-    setCurrentElem(id);
-    switch (id) {
-      case 1:
-        window.open("/", "_self");
-        break;
-      case 2:
-        window.open("/", "_self");
-        break;
-      case 3:
-        window.open("/contact", "_self");
-        break;
-      default:
-        window.open("/", "_self");
-        break;
-    }
-  };
-
-  const handleClose = (event: React.MouseEvent<Document, MouseEvent>) => {
-    setOpen(!open);
-  };
+export default function DemoMenu() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
-    setOpen(!open);
+    setOpen((prevOpen) => !prevOpen);
   };
 
-
-  const dropDownList = items.map(item => {
-    return (
-      <MenuItem key={item.id} onClick={(e) => handleClick(e, item.id)}>{item.name}</MenuItem>
-    )
-  });
+  const handleClose = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    setOpen(false);
+  };
 
   return (
-    <div>
-      <IconButton >
-        <MenuIcon />
+    <div className={classes.root}>
+      <IconButton
+        ref={anchorRef}
+        aria-controls={open ? 'menu-list-grow' : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+      >
+        <MenuIcon style={{ color: 'white' }} />
       </IconButton>
-      <Popper open={open} anchorEl={anchor} transition disablePortal>
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
-            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+            style={{ transformOrigin: placement === 'bottom' ? 'right top' : 'right bottom' }}
           >
             <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList>
-                  {dropDownList}
+              <ClickAwayListener onClickAway={() => setOpen(false)}>
+                <MenuList autoFocusItem={open} id="menu-list-grow" >
+                  <MenuItem onClick={() => window.open("/contact", "_self")}>Contact</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>
@@ -90,6 +56,4 @@ const Menu: React.FC = () => {
       </Popper>
     </div>
   );
-};
-
-export default Menu;
+}
