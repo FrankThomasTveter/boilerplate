@@ -40,7 +40,7 @@ const Home: React.FC = () => {
             <img alt={"homepage"} className={classes.homePageImg} src={examplePng}></img>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item md={12} lg={6}>
           <Paper className={classes.paper}>
             <Typography>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt arcu dolor,
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item sm={12} md={6}>
           <Paper className={classes.paper}>
             <Typography>
               In leo metus, vehicula sed aliquam nec, interdum nec tortor. Suspendisse aliquam
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item sm={12} md={6}>
           <Paper className={classes.paper}>
             <Typography>
               Nam ac scelerisque massa, venenatis auctor enim. Proin consectetur sodales elit, a
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item sm={12} md={6}>
           <Paper className={classes.paper}>
             <Typography>
               Praesent id varius purus. Quisque eget mauris est. Ut at eros lacus. Nulla sodales
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item sm={12} md={6}>
           <Paper className={classes.paper}>
             <Typography>
               Donec bibendum nibh dignissim nibh auctor, ac ultricies dolor facilisis. Donec a eros
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item sm={12} md={6}>
           <Paper className={classes.paper}>
             <Typography>
               Praesent id varius purus. Quisque eget mauris est. Ut at eros lacus. Nulla sodales

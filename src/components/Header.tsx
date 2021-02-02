@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 150,
       [theme.breakpoints.up('sm')]: {
         width: 200,
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
       },
     },
   }),
