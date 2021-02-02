@@ -11,7 +11,7 @@ import createTheme from './utils/createTheme';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Contact from './pages/Contact';
+import Observations from './pages/Observations';
 import backGroundWaves from "./images/waves.png";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,10 +44,10 @@ const App: React.FC = () => {
               <Footer />
             </>
           )} />
-          <Route exact={true} path='/contact' render={() => (
+          <Route exact={true} path='/observations' render={() => (
             <>
               <Header />
-              <Contact />
+              <Observations />
               <Footer />
             </>
           )} />
