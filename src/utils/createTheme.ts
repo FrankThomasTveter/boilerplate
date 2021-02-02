@@ -1,43 +1,20 @@
-import { createMuiTheme } from '@material-ui/core';
+import {Color, createMuiTheme, SimplePaletteColorOptions} from "@material-ui/core";
 
-const palette = {
-  primary: {
-    light: '#B9DABB',
-    main: '#1D6936',
-    dark: '#112e0c',
-  },
-  background: {
-    default: '#FFF',
-  },
-  warning: {
-    main: '#FFEA9C',
-  },
-  error: {
-    main: '#f12929',
-  },
-};
+function createTheme(primary: SimplePaletteColorOptions | Partial<Color> | undefined = undefined, 
+  secondary: SimplePaletteColorOptions | Partial<Color> | undefined = undefined) {
+    return createMuiTheme({
+        palette: {
+            primary: Object.assign({}, primary, {
+                // special primary color rules can be added here
+            }),
+            secondary: Object.assign({}, secondary, {
+                // special secondary color rules can be added here
+            }),
+            // error: will use the default color
+        },
+    });
 
-export default function createTheme() {
-  const theme = createMuiTheme({
-    palette,
-    appLayout: {
-      maxWidth: 1280,
-    },
-  });
 
-  return theme;
 }
 
-declare module '@material-ui/core/styles/createMuiTheme' {
-  interface Theme {
-    appLayout: {
-      maxWidth: React.CSSProperties['maxWidth'];
-    };
-  }
-  // allow configuration using `createMuiTheme`
-  interface ThemeOptions {
-    appLayout?: {
-      maxWidth?: React.CSSProperties['maxWidth'];
-    };
-  }
-}
+export default (createTheme);
