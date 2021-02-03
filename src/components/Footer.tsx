@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.root}>
       <Grid container spacing={0}>
-        <Grid xs={12} md={6} className={styles.contact} >
+        <Grid item xs={12} md={6} className={styles.contact} >
           <Typography color={"inherit"}  >
             Meteorologisk institutt<br />
             Henrik Mohns Plass 1<br />
