@@ -1,8 +1,9 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import ObservationTable from '../components/ObservationTable';
 import { pageSpacing } from '../utils/metMuiThemes';
+import { createRandomObs } from '../utils/randomObs';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,14 +37,12 @@ const Observations: React.FC = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} >
           <Paper className={styles.paper}>
-            <Typography variant="h5">Observasjoner for Blindern</Typography>
-            <ObservationTable />
+            <ObservationTable locationName="Bergen" observations={createRandomObs(23)} />
           </Paper>
         </Grid>
         <Grid item xs={12} md={6}>
           <Paper className={styles.paper}>
-            <Typography variant="h5">Observasjoner for Tromsø</Typography>
-            <ObservationTable />
+            <ObservationTable locationName="Tromsø" observations={createRandomObs(23)} />
           </Paper>
         </Grid>
       </Grid>
