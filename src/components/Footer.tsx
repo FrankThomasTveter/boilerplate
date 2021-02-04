@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
       bottom: 0,
-      backgroundColor: '#FFF',
+      backgroundColor: theme.palette.primary.contrastText,
       borderTop: '2px solid ' + theme.palette.primary.main
     },
     contact: {

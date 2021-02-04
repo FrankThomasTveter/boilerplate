@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       marginRight: theme.spacing(0),
     },
+    icon: {
+      color: theme.palette.primary.contrastText,
+    }
   }));
 
 export default function DemoMenu() {
@@ -34,7 +37,7 @@ export default function DemoMenu() {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <MenuIcon style={{ color: 'white' }} />
+        <MenuIcon className={classes.icon} />
       </IconButton>
       <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
@@ -45,8 +48,8 @@ export default function DemoMenu() {
             <Paper>
               <ClickAwayListener onClickAway={() => setOpen(false)}>
                 <MenuList autoFocusItem={open} id="menu-list-grow" >
-                  <MenuItem onClick={() => window.open("/observations", "_self")}>Observations</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={() => window.open("/", "_self")}>Forside</MenuItem>
+                  <MenuItem onClick={() => window.open("/observations", "_self")}>Observasjoner</MenuItem>
                   <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </MenuList>
               </ClickAwayListener>
