@@ -111,10 +111,10 @@ const Home: React.FC<Props> = ({ currentPalette, onPaletteChanged }) => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Paper className={classes.paperLight}>
-            Light profile color
+            Light palette color
           </Paper>
           <Paper className={classes.paperDark}>
-            Dark profile color
+            Dark palette color
           </Paper>
         </Grid>
 
