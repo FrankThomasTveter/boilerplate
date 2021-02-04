@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Color, MuiThemeProvider, SimplePaletteColorOptions } from '@material-ui/core';
+import { MuiThemeProvider, SimplePaletteColorOptions } from '@material-ui/core';
 import {
   makeStyles,
   createStyles,
