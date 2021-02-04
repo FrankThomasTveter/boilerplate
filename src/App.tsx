@@ -39,7 +39,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <MuiThemeProvider theme={createTheme(palette, palette)}>
+    <MuiThemeProvider theme={createTheme(palette, paletteMap.get('black_palette'))}>
       <BrowserRouter>
         <div className={classes.root}>
           <Route exact={true} path='/' render={() => (
