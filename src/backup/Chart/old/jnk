@@ -1,0 +1,67 @@
+import React, {Component,useEffect,useState,useRef} from "react";
+import PropTypes from 'prop-types';
+import Map from './Map';
+import { Layers, TileLayer, VectorLayer } from "./Layers";
+import { fromLonLat, get } from 'ol/proj';
+import GeoJSON from 'ol/format/GeoJSON';
+import { Controls, FullScreenControl } from "./Controls";
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    dataset: {},
+    content: {
+	height:'100vh',
+	padding: theme.spacing(1),
+	backgroundColor:'gold',
+    },
+    root: {
+	height: '100%',
+	padding:0,
+	margin:0,
+	border: '0px solid red',
+	paddingTop: theme.spacing(3),
+	paddingBottom: theme.spacing(3),
+    },
+    invisible:{border:0,padding:0},
+    map: {
+	backgroundColor:'LightTurquoise',
+//	backgroundColor:'Gray',
+	overflow: 'hidden',
+	height: '100%',
+    },
+    button:{},
+    buttonInvisible:{},
+    buttonDisabled:{},
+});
+
+let styles = {
+  'MultiPolygon': new Style({
+    stroke: new Stroke({
+      color: 'blue',
+      width: 1,
+    }),
+    fill: new Fill({
+      color: 'rgba(0, 0, 255, 0.1)',
+    }),
+  }),
+};
+const geojsonObject = { ... }; // see full geojson object in Github
+const geojsonObject2 = { ... }; // see full geojson object in Github
+const GeoJsonMap = () => {
+    const [center, setCenter] = useState([-94.9065, 38.9884]);
+    const [zoom, setZoom] = useState(9);
+    const [showLayer1, setShowLayer1] = useState(true);
+    const [showLayer2, setShowLayer2] = useState(true);
+
+    class GeoJsonMap extends Component {
+    render() {
+	const { classes } = this.props;
+	return (<div className={classes.content}><OpenLayerMap/></div>);
+    }
+}
+
+GeoJsonMap.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(GeoJsonMap);
